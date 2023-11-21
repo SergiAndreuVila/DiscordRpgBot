@@ -6,48 +6,7 @@ const { REST, Routes, ApplicationCommandOptionType } = require("discord.js");
 const  Constants = require('./constants.js');
 
 const commands = [
-  
-  /*{
-    //simple command
-    name: "hey",
-    description: "replies with hey",
-  },
-  {
-    //opotions command
-    name: "add",
-    description: "adds two numbers",
-    options: [
-      {
-        name: "first-number",
-        description: "first number",
-        type: ApplicationCommandOptionType.Number,
-        choices: [
-          {
-            name: "one",
-            value: 1,
-          },
-          {
-            name: "two",
-            value: 2,
-          },
-          {
-            name: "three",
-            value: 3,
-          },
-        ],
-        required: true,
-      },
-      {
-        name: "second-number",
-        description: "second number",
-        type: ApplicationCommandOptionType.Number,
-        required: true,
-      },
-    ],
-  },
-  
-  
-  */{
+{
     name: "new-character",
     description:"create a new character",
     options:[
@@ -115,6 +74,10 @@ const commands = [
   {
     name:"my-character",
     description: "get your character information"
+  },
+  {
+    name:"start-working",
+    description:"start working at your designed job"
   },
 ];
 

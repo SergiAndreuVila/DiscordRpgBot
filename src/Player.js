@@ -1,4 +1,7 @@
-const  formatter = require('./constantsToStrings.js');
+const formatter = require("./constantsToStrings.js");
+const Profession = require("./professions/Profession.js");
+const Lumberjack = require("./professions/Lumberjack.js");
+const Item = require("./Item.js");
 
 class Player {
   owner;
@@ -6,25 +9,56 @@ class Player {
   race;
   clas;
   profession;
+  professions = [];
   level = 1;
-  //spells=Spell[];
-  //items=[];
+  playerEsperience = 0;
+  professionExperience = 0;
 
-  constructor(owner, name, race, clas, profession, level) {
+  //spells=Spell[];
+  items = [];
+
+  
+
+  constructor(owner, name, race, clas, profession,) {
     this.owner = owner;
     this.name = name;
     this.race = race;
     this.clas = clas;
     this.profession = profession;
-    this.level = level;
     // this._spells = Spells[];
-    // this._items = [];
+    
+    this.professions.push(this.createProfession());
+  }
+  createProfession(){
+    const  profession = new Lumberjack(1, "lumberjack", "description");
+    return profession;
   }
 
   getAllInformationAsString() {
-    
-      return `Owner: ${this.owner}\nName: ${this.name}\nRace: ${formatter.raceToString(this.race)}\nClass: ${formatter.classToString(this.clas)}\nProfession: ${this.profession}\nLevel: ${this.level}`;
-    }
+    return `Name: ${this.name}\nRace: ${formatter.raceToString(
+      this.race
+    )}\nClass: ${formatter.classToString(this.clas)}\nProfession: ${
+      this.professions[0].name
+    }\nLevel: ${this.level}`;
+  }
 
+  goToWork() {
+    let itemsToAdd=this.professions[0].startWorking(this.professionExperience);
+    itemsToAdd.forEach(item => {
+      this.items.push( item);
+    });
+   
+   console.log(this.professions)
+ 
+
+    
+  }
+
+  getItems() {
+    return this.items;
+  }
+  
+
+   
 }
 module.exports = Player;

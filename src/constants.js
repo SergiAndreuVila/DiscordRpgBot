@@ -10,6 +10,12 @@
       WIZARD:3,
       CLERIC:4,
       FIGHTER:5,
+//ITEMS
+      LOG:1,
+      BRANCH:2,
+      BARK:3,
+      RESIN:4,
+
 }
 
 module.exports = Constants;
