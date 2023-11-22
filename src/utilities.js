@@ -1,7 +1,3 @@
-
-const { Item } = require("./Item");
-const Player = require("./Player");
-
 function returnPlayer(players, userId) {
   let player;
 
@@ -36,6 +32,11 @@ function printItems(itemsToPrint, action) {
   return resultString;
 };
 
+function getRandomItemId(availableItemIds) {
+  const randomIndex = Math.floor(Math.random() * availableItemIds.length);
+  return availableItemIds[randomIndex];
+}
+
 module.exports = {
-  returnPlayer,printItems
+  returnPlayer,printItems, getRandomItemId
 };

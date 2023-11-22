@@ -79,6 +79,10 @@ const commands = [
     name:"start-working",
     description:"start working at your designed job"
   },
+  {
+    name:"open-backpack",
+    description:"let's see waths inside"
+  },
 ];
 
 const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);

@@ -1,7 +1,6 @@
 const formatter = require("./constantsToStrings.js");
 const Profession = require("./professions/Profession.js");
 const Lumberjack = require("./professions/Lumberjack.js");
-const Item = require("./Item.js");
 
 class Player {
   owner;
@@ -48,9 +47,8 @@ class Player {
       this.items.push( item);
     });
    
-   console.log(this.professions)
  
-
+  return itemsToAdd;
     
   }
 

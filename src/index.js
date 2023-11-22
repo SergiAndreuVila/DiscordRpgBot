@@ -2,7 +2,6 @@ require("dotenv").config();
 
 const { Client, IntentsBitField } = require("discord.js");
 const Player = require("./Player");
-const Item = require("./Item.js")
 const utilities = require("./utilities.js");
 
 const client = new Client({
@@ -62,7 +61,7 @@ client.on("interactionCreate", (interaction) => {
 
   if (interaction.commandName === "my-character") {
     const currentPlayer = utilities.returnPlayer(players, interaction.user.id);
-  
+
     if (currentPlayer === null) {
       interaction.reply("You must create a character first");
     } else {
@@ -72,13 +71,15 @@ client.on("interactionCreate", (interaction) => {
 
   if (interaction.commandName === "start-working") {
     let curretPlayer = utilities.returnPlayer(players, interaction.user.id);
-    curretPlayer.goToWork();
-    let currentItems=curretPlayer.getItems()
-    
-    console.log(currentItems);
 
-    console.log(utilities.printItems(currentItems,"items obtained"));
-    interaction.reply(utilities.printItems(currentItems,"items obtained"));
+    let itemsObtained = curretPlayer.goToWork();
+    interaction.reply(utilities.printItems(itemsObtained, "items obtained"));
+  }
+
+  if (interaction.commandName === "open-backpack") {
+    let curretPlayer = utilities.returnPlayer(players, interaction.user.id);
+    let backpackItems = curretPlayer.getItems();
+    interaction.reply(utilities.printItems(backpackItems, "you have"));
   }
 });
 
